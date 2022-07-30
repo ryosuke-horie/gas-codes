@@ -8,6 +8,19 @@ function moveSpecificAddressEmailToTrash() {
   const deleteAddressArray = [
     'googlealerts-noreply@google.com',
     'Rewards@mx.starbucks.co.jp',
+    'verify@twitter.com',
+    'card_admin@mx.starbucks.co.jp amazonses.com',
+    'no-reply@indeed.com',
+    'suumo-support@e.suumo.jp',
+    'noreply@finbee.jp',
+    'verify@twitter.com',
+    'no-reply@indeed.com',
+    'card_admin@mx.starbucks.co.jp',
+    'noreply@lancers.co.jp',
+    'jory@m.fontawesome.com',
+    'noreply@signate.jp',
+    'web.dev-noreply@google.com',
+    'noreply@github.com',
   ];
 
   // 削除処理
