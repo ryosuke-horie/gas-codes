@@ -21,7 +21,38 @@ function moveSpecificAddressEmailToTrash() {
     'noreply@signate.jp',
     'web.dev-noreply@google.com',
     'noreply@github.com',
-  ];
+    'feedback@moneyforward.com mnybk.com',
+    'contact@anny.gift xdata.jp',
+    'mktg_nws@rakuten-sec.co.jp',
+    'paiza_newsletter@paiza.jp',
+    'no-reply@magazine.crowdworks.jp',
+    'magazine@lancers.jp',
+    'mag@zozo.jp',
+    'info@sevenmp.omni7.jp',
+    'rpointcard-news@emagazine.rakuten.co.jp',
+    'mag@hotpepper.jp',
+    'member@emagazine.rakuten.co.jp',
+    'ikea@news.email.ikea.jp',
+    'v-mail@dmm.com',
+    'info@mailer.netflix.com',
+    'learn@email1.asana.com',
+    'store-news@amazon.co.jp',
+    'communication@mailer.olympic.org',
+    'mktg_nws@rakuten-sec.co.jp',
+    'dominos@mail.dominos.jp',
+    'mail@mail.adobe.com',
+    'info@paiza.jp',
+    'info@zaim.net',
+    'contact@anny.gift',
+    'info@mailer.netflix.com',
+    'service@ac.rakuten-bank.co.jp',
+    'feedback@moneyforward.com',
+    'noreply@signate.jp',
+    'freelance.findy-code.io',
+    'friendsuggestion@facebookmail.com',
+    'reminders@facebookmail.com',
+    'notify@twitter.com',
+    ];
 
   // 削除処理
   for(let deleteAddress of deleteAddressArray) {
@@ -30,6 +61,12 @@ function moveSpecificAddressEmailToTrash() {
     // 検索してスレッドを取得
     let threads = GmailApp.search(query, start, max);
     let messageThreads = GmailApp.getMessagesForThreads(threads);
+    
+    // 検索条件でメールを取得できない場合はcontinue
+    if(isEmpty(messageThreads)) {
+      continue;
+    }
+
     // ゴミ箱に移動
     for(let messages of messageThreads) {
       messages[0].moveToTrash();
