@@ -4,56 +4,6 @@ function moveSpecificAddressEmailToTrash() {
   const start = 0;
   const max = 10;
 
-  // 削除したい送信元メールアドレス
-  const deleteAddressArray = [
-    'googlealerts-noreply@google.com',
-    'Rewards@mx.starbucks.co.jp',
-    'verify@twitter.com',
-    'card_admin@mx.starbucks.co.jp amazonses.com',
-    'no-reply@indeed.com',
-    'suumo-support@e.suumo.jp',
-    'noreply@finbee.jp',
-    'verify@twitter.com',
-    'no-reply@indeed.com',
-    'card_admin@mx.starbucks.co.jp',
-    'noreply@lancers.co.jp',
-    'jory@m.fontawesome.com',
-    'noreply@signate.jp',
-    'web.dev-noreply@google.com',
-    'noreply@github.com',
-    'feedback@moneyforward.com mnybk.com',
-    'contact@anny.gift xdata.jp',
-    'mktg_nws@rakuten-sec.co.jp',
-    'paiza_newsletter@paiza.jp',
-    'no-reply@magazine.crowdworks.jp',
-    'magazine@lancers.jp',
-    'mag@zozo.jp',
-    'info@sevenmp.omni7.jp',
-    'rpointcard-news@emagazine.rakuten.co.jp',
-    'mag@hotpepper.jp',
-    'member@emagazine.rakuten.co.jp',
-    'ikea@news.email.ikea.jp',
-    'v-mail@dmm.com',
-    'info@mailer.netflix.com',
-    'learn@email1.asana.com',
-    'store-news@amazon.co.jp',
-    'communication@mailer.olympic.org',
-    'mktg_nws@rakuten-sec.co.jp',
-    'dominos@mail.dominos.jp',
-    'mail@mail.adobe.com',
-    'info@paiza.jp',
-    'info@zaim.net',
-    'contact@anny.gift',
-    'info@mailer.netflix.com',
-    'service@ac.rakuten-bank.co.jp',
-    'feedback@moneyforward.com',
-    'noreply@signate.jp',
-    'freelance.findy-code.io',
-    'friendsuggestion@facebookmail.com',
-    'reminders@facebookmail.com',
-    'notify@twitter.com',
-    ];
-
   // 削除処理
   for(let deleteAddress of deleteAddressArray) {
     // 検索条件を指定
