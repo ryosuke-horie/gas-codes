@@ -41,7 +41,6 @@ const deleteAddressArray = [
   'info@mailer.netflix.com',
   'service@ac.rakuten-bank.co.jp',
   'feedback@moneyforward.com',
-  'noreply@signate.jp',
   'freelance.findy-code.io',
   'friendsuggestion@facebookmail.com',
   'reminders@facebookmail.com',
@@ -52,4 +51,9 @@ const deleteAddressArray = [
   'bank-news@mail.rakuten-bank.co.jp',
   'v-mail@dmm.co.jp',
   'aws-marketing-email-replies@amazon.com',
+  'info@mail.rakuten-bank.co.jp',
+  'Rewards@mx.starbucks.co.jp',
+  'majibu@majibu.jp',
+  'ccl@matsukiyococokara.com',
+  'qoo10info@qoo10.jp',
 ];
