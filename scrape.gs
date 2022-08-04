@@ -3,9 +3,8 @@ function getQiitaTrend() {
   const response = UrlFetchApp.fetch('https://qiita.com/trend');
   const content = response.getContentText('utf-8');
 
-  var venues = Parser.data(content).from('<article class="css-16qp2r">').to('</article>').iterate();
-  console.log(venues)
-
+  var venues = Parser.data(content).from('<<article class="css-16qp2r">').to('</article>').iterate();
+  console.log(venues);
 
   // // トレンドのブロックを抽出
   // let topic_block = Parser.data(text).from('class="css-1p44k52">').to('</div>').build();
