@@ -1,49 +1,40 @@
-// Qiitaのトレンドを取得する
-function getQiitaTrend() {
-  const response = UrlFetchApp.fetch('https://qiita.com/trend');
+// Qiitaのトレンド記事を取得しHTMLメールとして送信する。
+function sendQiitaTrendMail() {
+  // URL取得
+  const response = UrlFetchApp.fetch('https://qiita.com/');
+  // コンテンツ取得
   const content = response.getContentText('utf-8');
+  // タイトルとURLはh2タグ内に記載があるので配列として取得する
+  let venues = Parser.data(content).from('<h2 class="css-1t4fpk1">').to('</h2>').iterate();
 
-  var venues = Parser.data(content).from('<<article class="css-16qp2r">').to('</article>').iterate();
-  console.log(venues);
+  // メールの本文
+  let body = '';
+  // 各タイトル及びURLを配列から取得し本文に追加
+  for (let i = 0; i < venues.length; i++) {
+    // 記事のタイトル取得(タイトルは配列で取得しているため1個目の値を取得する)
+    let title = Parser.data(venues[i]).from('>').to('<').iterate();
+    title = title[0];
 
-  // // トレンドのブロックを抽出
-  // let topic_block = Parser.data(text).from('class="css-1p44k52">').to('</div>').build();
-  // console.log(topic_block);
+    // トレンド記事のURL
+    let url = Parser.data(venues[i]).from('href="').to('"').iterate();
 
-  // //ulタグで囲まれている記述（トップニュース記事）を抽出
-  // var content_block = Parser.data(topic_block).from('<article>').to('</article>').iterate();
+    // 本文にタイトルとURLを追記して改行
 
-  // // 記事リスト用の変数を宣言
-  // var list = [];
+    body = body + '<a href="' + url + '">' + title + '</a>';
+    body = body + '<br>--------------------<br>';
+  }
 
-  // // content_blockの要素数分繰り返し
-  // for (var i = 0; i < content_block.length; i++) {
+  //送信先のメールアドレス
+  const recipient = 'ryosuke03140@gmail.com';
+  //件名
+  const subject = '今日のQiitaトレンド';
+  //送信者の名前
+  const options =
+  {
+    name: '自動送信：Qiitaトレンド',
+    htmlBody: body,
+  };
 
-  //   // content_blockの要素のうち、aタグに囲まれている記述を抽出
-  //   topicks = Parser.data(content_block[i]).from('<a').to('</a>').iterate();
-  //   console.log(topicks);
-
-  //   // aタグに囲まれた記述の回数分、タイトルとURLを抽出する
-  //   for (var j = 0; j < topicks.length; j++) {
-  //     var topick = topicks[j];
-
-  //     //URL取得
-  //     var topick_url = topick.replace(/.*href="/, "").replace(/".*/, "");
-  //     //タイトル取得
-  //     var topick_title = topick.replace(/.*class="css-2p454n">/, "").replace(/<.*>/, "");
-  //     //リスト格納
-
-  //     // 各ニュースページからカテゴリを取得
-  //     var response_topick = UrlFetchApp.fetch(topick_url);
-  //     var text_topick = response_topick.getContentText("utf-8");
-
-  //     var topick_category = Parser.data(text_topick).from('トピックス（').to('）').build();
-
-
-  //     // ニュース順位、URL、タイトル、カテゴリーを取得
-  //     list.push([j + 1, topick_url, topick_title, topick_category]);
-  //   }
-  // }
-
-  // console.log(list);
+  // メール送信
+  GmailApp.sendEmail(recipient, subject, body, options);
 }
