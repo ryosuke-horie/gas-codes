@@ -1,5 +1,9 @@
 // 削除したい送信元メールアドレス
 const deleteAddressArray = [
+  'noreply@signate.jp',
+  'noreply@tabelog.com',
+  'no-reply@mail.dotinstall.com',
+  'noreply-maps-timeline@google.com',
   'googlealerts-noreply@google.com',
   'Rewards@mx.starbucks.co.jp',
   'verify@twitter.com',
@@ -59,9 +63,9 @@ const deleteAddressArray = [
 ];
 
 // 空オブジェクト判定用の関数
-function isEmpty(obj) {
-  return !Object.keys(obj).length;
-}
+// function isEmpty(obj) {
+//   return !Object.keys(obj).length;
+// }
 
 // 特定アドレスのメールをゴミ箱に移動する関数
 function moveSpecificAddressEmailToTrash() {
@@ -74,10 +78,10 @@ function moveSpecificAddressEmailToTrash() {
     let threads = GmailApp.search(query, 0, 3);
     let messageThreads = GmailApp.getMessagesForThreads(threads);
 
-    // 検索条件でメールを取得できない場合はcontinue
-    if (isEmpty(messageThreads)) {
-      continue;
-    }
+    // // 検索条件でメールを取得できない場合はcontinue
+    // if (isEmpty(messageThreads)) {
+    //   continue;
+    // }
 
     // ゴミ箱に移動
     for (let messages of messageThreads) {
