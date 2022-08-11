@@ -48,6 +48,26 @@ function myFunction() {
     case overcast:
       weather = 'どんよりした天気';
       break;
+    case fog:
+      weather = '霧';
+      break;
+    case depositing_rime_fog:
+      weather = '霧氷';
+      break;
+    case light_drizzle:
+    case moderate_drizzle:
+    case dense_drizzle:
+      weather = '霧雨';
+      break;
+    case slight_rain:
+      weather = '軽い雨';
+      break;
+    case moderate_rain:
+      weather = '雨';
+      break;
+    case heavy_rain:
+      weather = '強い雨';
+      break;
     default:
       weather === '警告:ウェザーコードが登録されていません。';
   }
