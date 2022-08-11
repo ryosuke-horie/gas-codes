@@ -1,4 +1,4 @@
-function myFunction() {
+function weatherCheck() {
   const url = 'https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo';
   // JSONデータを取得
   const response = UrlFetchApp.fetch(url).getContentText();
