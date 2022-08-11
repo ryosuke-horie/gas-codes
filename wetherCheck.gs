@@ -16,24 +16,53 @@ function myFunction() {
   let weathercode = dailyArray['weathercode'][1];
 
   // TODO ここの条件を正確にする。
+  const clear_sky = 0;
+  const mainly_clear = 1;
+  const partly_cloudy = 2;
+  const overcast = 3;
+  const fog = 45;
+  const depositing_rime_fog = 48;
+  const light_drizzle = 51;
+  const moderate_drizzle = 53;
+  const dense_drizzle = 55;
+  const slight_rain = 66;
+  const moderate_rain = 63;
+  const heavy_rain = 65;
+
+
+  // TODO 条件分岐を追加する。
   // wheathercodeから天気を割り出す
   // 参照：(https://open-meteo.com/en/docs#api-documentation)
   let weather = '';
-  if (weathercode == '0') {
-    weather = '快晴';
-  } else if (weathercode == '1' || weathercode == '2') {
-    weather = 'おおむね晴れ';
-  } else if (weathercode == '3') {
-    weathercode = '曇り';
-  } else if (weathercode == '45' || weathercode == '48') {
-    weather = '霧と霧氷の堆積';
-  } else if (weathercode == '51') {
-    weather = '軽い雨';
-  } else if (weathercode == '53') {
-    weather = '雨';
-  } else if (weathercode == '55') {
-    weather = '強めの雨'
+
+  switch (weathercode) {
+    case clear_sky:
+      weather === '快晴';
+      break;
+    case mainly_clear:
+      weather === 'おおむね晴れ';
+      break;
+    case partly_cloudy:
+      weather === '晴れときどき曇り';
+      break;
+    case overcast:
+      weather = 'どんよりした天気';
+      break;
+    default:
+      weather === '警告:ウェザーコードが登録されていません。';
   }
 
-  // TODO LINEやGmailで送信する処理を実装
+  const token = PropertiesService.getScriptProperties().getProperty('LINE_WHEATHER_CHECK')
+  const lineNotifyApi = "https://notify-api.line.me/api/notify";
+  const message = "明日の天気は「" + weather + '」';
+
+  const options =
+  {
+    "method": "post",
+    "payload": "message=" + message,
+    "headers": { "Authorization": "Bearer " + token }
+  };
+
+  // FetchメソッドでLINEにメッセージを送信
+  UrlFetchApp.fetch(lineNotifyApi, options);
 }

@@ -62,11 +62,6 @@ const deleteAddressArray = [
   'qoo10info@qoo10.jp',
 ];
 
-// 空オブジェクト判定用の関数
-// function isEmpty(obj) {
-//   return !Object.keys(obj).length;
-// }
-
 // 特定アドレスのメールをゴミ箱に移動する関数
 function moveSpecificAddressEmailToTrash() {
   // 削除処理

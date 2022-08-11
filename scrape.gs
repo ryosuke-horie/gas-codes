@@ -52,7 +52,6 @@ function deleteQiitaTrendMail() {
 
   // 検索条件 件名が「今日のQiitaトレンド」かつ昨日までに送信されたメールを検索。
   let query = 'subject:今日のQiitaトレンド before:' + yesterday;
-  console.log(query);
   let threads = GmailApp.search(query);
   let messageThreads = GmailApp.getMessagesForThreads(threads);
 
