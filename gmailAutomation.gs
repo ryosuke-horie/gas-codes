@@ -1,5 +1,14 @@
 // 削除したい送信元メールアドレス
 const deleteAddressArray = [
+  'info@audiobook.jp',
+  'noreply@wantedly.com',
+  'addp@point.recruit.co.jp',
+  'info@form.jrepoint.jp',
+  'admin@in-fra.jp',
+  'noreply_zoffonline@zoff.com',
+  'mail@mail.adobe.com',
+  'point-notice-w@pointcard.rakuten.co.jp',
+  'reminders@facebookmail.com',
   'aws-marketing-email-replies@amazon.com',
   'member-technology@crowdworks.co.jp',
   'noreply@freelance-start.com',
