@@ -1,5 +1,8 @@
 // 削除したい送信元メールアドレス
 const deleteAddressArray = [
+  'aws-marketing-email-replies@amazon.com',
+  'member-technology@crowdworks.co.jp',
+  'noreply@freelance-start.com',
   'noreply@signate.jp',
   'noreply@tabelog.com',
   'no-reply@mail.dotinstall.com',
