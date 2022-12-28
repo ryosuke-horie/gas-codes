@@ -5,7 +5,7 @@ function sendQiitaTrendMail() {
   // コンテンツ取得
   const content = response.getContentText('utf-8');
   // タイトルとURLはh2タグ内に記載があるので配列として取得する
-  var aricleArray = Parser.data(content).from('<h2 class="css-skov52">').to('</h2>').iterate();
+  var aricleArray = Parser.data(content).from('<h2 class="style-skov52">').to('</h2>').iterate();
 
   // メールの本文
   let body = '';
